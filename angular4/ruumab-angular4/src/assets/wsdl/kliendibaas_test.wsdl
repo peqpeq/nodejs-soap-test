@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://epm.agri.ee/" xmlns:sch="http://epm.agri.ee/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://epm.agri.ee/">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:epm="http://epm.agri.ee/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://epm.agri.ee/"><xsd:complexType name="XmlAadressType"><xsd:sequence><xsd:element name="liik" type="epm:XmlKlassifikaatorType"/><xsd:element name="riik" type="epm:XmlKlassifikaatorType"/><xsd:element minOccurs="0" name="aadress" type="xsd:string"/><xsd:element minOccurs="0" name="ads_adr_id" type="xsd:string"/><xsd:element minOccurs="0" name="ads_oid" type="xsd:string"/><xsd:element minOccurs="0" name="postiindeks" type="xsd:string"/><xsd:element minOccurs="0" name="kehtiv_alates" type="xsd:dateTime"/><xsd:element minOccurs="0" name="kehtiv_kuni" type="xsd:dateTime"/><xsd:element minOccurs="0" name="detailid" type="epm:XmlAadressDetailandmedType"/><xsd:element minOccurs="0" name="valdkond" type="epm:XmlKlassifikaatorType"/><xsd:element minOccurs="0" name="lisamise_aeg" type="xsd:dateTime"/><xsd:element minOccurs="0" name="muutmise_aeg" type="xsd:dateTime"/><xsd:element minOccurs="0" name="kattuv_aadress_pohjendus" type="xsd:string"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlKlientKategooriaType"><xsd:sequence><xsd:element name="loend_kood" type="xsd:string"/><xsd:element name="loend_vaartus_kood" type="xsd:string"/><xsd:element minOccurs="0" name="lisamise_aeg" type="xsd:dateTime"/><xsd:element minOccurs="0" name="muutmise_aeg" type="xsd:dateTime"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlIsikNimiType"><xsd:sequence><xsd:element name="eesnimi" type="xsd:string"/><xsd:element name="perenimi" type="xsd:string"/><xsd:element minOccurs="0" name="kehtiv_alates" type="xsd:dateTime"/><xsd:element minOccurs="0" name="kehtiv_kuni" type="xsd:dateTime"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlIsikType"><xsd:complexContent><xsd:extension base="epm:XmlKlientDetailandmedType"><xsd:sequence><xsd:element name="eesnimi" type="xsd:string"/><xsd:element name="perenimi" type="xsd:string"/><xsd:element name="isikukood" type="xsd:string"/><xsd:element name="riik" type="epm:XmlKlassifikaatorType"/><xsd:element minOccurs="0" name="nimed"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="nimi" type="epm:XmlIsikNimiType"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKontaktType"><xsd:sequence><xsd:element name="liik" type="epm:XmlKlassifikaatorType"/><xsd:element name="vaartus" type="xsd:string"/><xsd:element minOccurs="0" name="kehtiv_alates" type="xsd:dateTime"/><xsd:element minOccurs="0" name="kehtiv_kuni" type="xsd:dateTime"/><xsd:element minOccurs="0" name="valdkond" type="epm:XmlKlassifikaatorType"/><xsd:element minOccurs="0" name="lisamise_aeg" type="xsd:dateTime"/><xsd:element minOccurs="0" name="muutmise_aeg" type="xsd:dateTime"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlKlassifikaatorType"><xsd:sequence><xsd:element name="kood" type="xsd:string"/><xsd:element name="loend_kood" type="xsd:string"/><xsd:element minOccurs="0" name="tekst" type="xsd:string"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlJurIsikNimiType"><xsd:sequence><xsd:element name="nimi" type="xsd:string"/><xsd:element minOccurs="0" name="kehtiv_alates" type="xsd:dateTime"/><xsd:element minOccurs="0" name="kehtiv_kuni" type="xsd:dateTime"/></xsd:sequence></xsd:complexType><xsd:complexType abstract="true" name="XmlKlientDetailandmedType"/><xsd:complexType name="XmlAadressDetailandmedType"><xsd:sequence><xsd:element minOccurs="0" name="tase_1" type="xsd:string"/><xsd:element minOccurs="0" name="tase_2" type="xsd:string"/><xsd:element minOccurs="0" name="tase_3" type="xsd:string"/><xsd:element minOccurs="0" name="tase_4" type="xsd:string"/><xsd:element minOccurs="0" name="tase_5" type="xsd:string"/><xsd:element minOccurs="0" name="tase_6" type="xsd:string"/><xsd:element minOccurs="0" name="tase_7" type="xsd:string"/><xsd:element minOccurs="0" name="tase_8" type="xsd:string"/><xsd:element minOccurs="0" name="koordinaat_x" type="xsd:string"/><xsd:element minOccurs="0" name="koordinaat_y" type="xsd:string"/><xsd:element minOccurs="0" name="tase_1_ehak" type="xsd:string"/><xsd:element minOccurs="0" name="tase_2_ehak" type="xsd:string"/><xsd:element minOccurs="0" name="tase_3_ehak" type="xsd:string"/><xsd:element minOccurs="0" name="tase_4_ehak" type="xsd:string"/><xsd:element minOccurs="0" name="tase_5_ehak" type="xsd:string"/><xsd:element minOccurs="0" name="tase_6_ehak" type="xsd:string"/><xsd:element minOccurs="0" name="tase_7_ehak" type="xsd:string"/><xsd:element minOccurs="0" name="tase_8_ehak" type="xsd:string"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlAmetnikType"><xsd:complexContent><xsd:extension base="epm:XmlKlientDetailandmedType"><xsd:sequence><xsd:element name="eesnimi" type="xsd:string"/><xsd:element name="perenimi" type="xsd:string"/><xsd:element minOccurs="0" name="isikukood" type="xsd:string"/><xsd:element name="pm_asutus_kood" type="epm:XmlKlassifikaatorType"/><xsd:element name="ametnik_tunnus" type="xsd:string"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlJurIsikType"><xsd:complexContent><xsd:extension base="epm:XmlKlientDetailandmedType"><xsd:sequence><xsd:element name="nimi" type="xsd:string"/><xsd:element name="registrikood" type="xsd:string"/><xsd:element name="riik" type="epm:XmlKlassifikaatorType"/><xsd:element name="liik" type="epm:XmlKlassifikaatorType"/><xsd:element minOccurs="0" name="nimed"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="nimi" type="epm:XmlJurIsikNimiType"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlTegevuskohtType"><xsd:sequence><xsd:element name="global_id" type="xsd:string"/><xsd:element name="liik" type="epm:XmlKlassifikaatorType"/><xsd:element name="nimi" type="xsd:string"/><xsd:element minOccurs="0" name="kehtiv_alates" type="xsd:dateTime"/><xsd:element minOccurs="0" name="kehtiv_kuni" type="xsd:dateTime"/><xsd:element minOccurs="0" name="kontaktid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="kontakt" type="epm:XmlKontaktType"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="aadressid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="aadress" type="epm:XmlAadressType"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="lisamise_aeg" type="xsd:dateTime"/><xsd:element minOccurs="0" name="muutmise_aeg" type="xsd:dateTime"/><xsd:element minOccurs="0" name="veebipood" type="xsd:boolean"/><xsd:element minOccurs="0" name="lisainfo" type="xsd:string"/><xsd:element minOccurs="0" name="on_ajutine" type="xsd:boolean"/><xsd:element minOccurs="0" name="kustutamise_aeg" type="xsd:dateTime"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlValineKlientkoodType"><xsd:sequence><xsd:element name="register_kood" type="xsd:string"/><xsd:element name="klient_kood" type="xsd:string"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlKlassifikaatorTolkegaType"><xsd:sequence><xsd:element name="kood" type="xsd:string"/><xsd:element name="loend_kood" type="xsd:string"/><xsd:sequence><xsd:element minOccurs="0" name="tekstid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" minOccurs="0" name="tekst" type="epm:XmlKlassifikaatorTekstType"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:sequence></xsd:complexType><xsd:complexType name="XmlKlassifikaatorTekstType"><xsd:sequence><xsd:element name="keel_kood" type="xsd:string"/><xsd:element name="tekst" type="xsd:string"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlIsikukoodRiigigaType"><xsd:simpleContent><xsd:extension base="epm:XmlKliendiKoodType"><xsd:attribute name="riik" type="xsd:string"/></xsd:extension></xsd:simpleContent></xsd:complexType><xsd:complexType name="XmlAnnaEsindamisedRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element name="esindatav_klient_nr" type="xsd:string"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlAnnaEsindatavadRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element name="esindaja_klient_nr" type="xsd:string"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlEsindamiseFailRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element name="esindamise_fail_id" type="xsd:string"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlBaseResponseType"><xsd:sequence><xsd:element name="vastus" type="epm:XmlVastusType"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlKlassifikaatoriVaartusedRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element name="loend_kood" type="xsd:string"/><xsd:element minOccurs="0" name="kood" type="xsd:string"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKlassifikaatoriVaartusedTolkegaRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element name="loend_kood" type="xsd:string"/><xsd:element minOccurs="0" name="kood" type="xsd:string"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlRegistreeriValineKlientkoodRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element name="klient_nr" type="xsd:string"/><xsd:element name="valine_klientkood" type="epm:XmlValineKlientkoodType"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlEsindamiseFailResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence><xsd:element minOccurs="0" name="data" type="xsd:base64Binary"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlUuendaEsindamistRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element name="esindatav_klient_nr" type="xsd:string"/><xsd:element name="esindaja_klient_nr" type="xsd:string"/><xsd:element minOccurs="0" name="email" type="xsd:string"/><xsd:element minOccurs="0" name="phone" type="xsd:string"/><xsd:element minOccurs="0" name="valdkonnad"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" minOccurs="0" name="valdkond"><xsd:complexType><xsd:sequence><xsd:element minOccurs="0" name="valdkond_kood" type="xsd:string"/><xsd:element name="kehtiv_alates" type="xsd:date"/><xsd:element minOccurs="0" name="kehtiv_kuni" type="xsd:date"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="algataja_klient_nr" type="xsd:string"/><xsd:element minOccurs="0" name="alusfail_sisu" type="xsd:base64Binary"/><xsd:element minOccurs="0" name="alusfail_nimi" type="xsd:string"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlAndmestikuTapsustusType"><xsd:sequence><xsd:element minOccurs="0" name="kontaktid" type="xsd:boolean"/><xsd:element minOccurs="0" name="kategooriad" type="xsd:boolean"/><xsd:element minOccurs="0" name="tegevuskohad" type="xsd:boolean"/><xsd:element minOccurs="0" name="aadressid" type="xsd:boolean"/><xsd:element minOccurs="0" name="esindajad" type="xsd:boolean"/><xsd:element minOccurs="0" name="valised_klientkoodid" type="xsd:boolean"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlOrderingType"><xsd:sequence><xsd:element name="field"><xsd:simpleType><xsd:restriction base="xsd:string"><xsd:enumeration value="NIMI"/><xsd:enumeration value="KOOD"/><xsd:enumeration value="KLIENT_STAATUS"/></xsd:restriction></xsd:simpleType></xsd:element><xsd:element name="asc" type="xsd:boolean"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlKlientType"><xsd:sequence><xsd:element minOccurs="0" name="kliendi_nr" type="xsd:string"/><xsd:element name="staatus" type="epm:XmlKlassifikaatorType"/><xsd:element minOccurs="0" name="tehingupartneri_kood" type="xsd:string"/><xsd:element minOccurs="0" name="lisamise_aeg" type="xsd:dateTime"/><xsd:element minOccurs="0" name="muutmise_aeg" type="xsd:dateTime"/><xsd:choice><xsd:element name="isik" type="epm:XmlIsikType"/><xsd:element name="jur_isik" type="epm:XmlJurIsikType"/><xsd:element name="ametnik" type="epm:XmlAmetnikType"/></xsd:choice><xsd:element minOccurs="0" name="kontaktid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="kontakt" type="epm:XmlKontaktType"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="aadressid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="aadress" type="epm:XmlAadressType"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="tegevuskohad"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="tegevuskoht" type="epm:XmlTegevuskohtType"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="kategooriad"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="kategooria" type="epm:XmlKlientKategooriaType"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="valised_klientkoodid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="valine_klientkood" type="epm:XmlValineKlientkoodType"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="esindajad"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="esindaja" type="epm:XmlKlientType"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="klient_staatus_tapsustus" type="xsd:string"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlRegistreeriValineKlientkoodResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence/></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlBaseRequestType"><xsd:sequence><xsd:element name="systeem_id" type="xsd:string"/><xsd:element minOccurs="0" name="ametnik_id" type="xsd:string"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlKliendiAndmedResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence><xsd:element minOccurs="0" name="klient" type="epm:XmlKlientType"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKliendiAndmedRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:choice><xsd:element name="kliendi_nr" type="epm:XmlKliendiNrType"/><xsd:element name="isikukood" type="epm:XmlIsikukoodRiigigaType"/><xsd:element name="registrikood" type="epm:XmlRegistrikoodRiigigaType"/></xsd:choice><xsd:element default="1" name="andmestiku_tase" type="xsd:int"/><xsd:element minOccurs="0" name="andmestiku_tapsustus" type="epm:XmlAndmestikuTapsustusType"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKliendiAndmedRegistristRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:choice><xsd:element name="isikukood" type="epm:XmlIsikukoodType"/><xsd:element name="registrikood" type="epm:XmlRegistrikoodType"/></xsd:choice></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKlientideMuudatusedResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence><xsd:element minOccurs="0" name="kliendid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="klient" type="epm:XmlKlientType"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlHoiatusType"><xsd:sequence><xsd:element name="hoiatus_tekst" type="xsd:string"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlKlassifikaatoriVaartusedResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence><xsd:element minOccurs="0" name="klassifikaatorid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" minOccurs="0" name="klassifikaator" type="epm:XmlKlassifikaatorType"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKlassifikaatoriVaartusedTolkegaResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence><xsd:element minOccurs="0" name="klassifikaatorid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" minOccurs="0" name="klassifikaator" type="epm:XmlKlassifikaatorTolkegaType"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKlientXteeAutentRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element name="voti" type="xsd:string"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlRegistrikoodType"><xsd:simpleContent><xsd:extension base="epm:XmlKliendiKoodType"/></xsd:simpleContent></xsd:complexType><xsd:complexType name="XmlVastusType"><xsd:sequence><xsd:element name="vastus_kood" type="xsd:int"/><xsd:element name="vastus_tekst" type="xsd:string"/><xsd:element minOccurs="0" name="hoiatused"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="hoiatus" type="epm:XmlHoiatusType"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:complexType><xsd:complexType name="XmlSalvestaKlientResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence><xsd:element minOccurs="0" name="kliendi_nr" type="epm:XmlKliendiNrType"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlPaginationType"><xsd:sequence><xsd:element name="limit" type="xsd:int"/><xsd:element minOccurs="0" name="offset" type="xsd:int"/></xsd:sequence></xsd:complexType><xsd:complexType name="XmlKlientXteeAutentResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence><xsd:element minOccurs="0" name="klient" type="epm:XmlKlientType"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKliendiAndmedRegistristResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence><xsd:element minOccurs="0" name="klient" type="epm:XmlKlientType"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlRegistrikoodRiigigaType"><xsd:simpleContent><xsd:extension base="epm:XmlKliendiKoodType"><xsd:attribute name="riik" type="xsd:string"/></xsd:extension></xsd:simpleContent></xsd:complexType><xsd:complexType name="XmlIsikukoodType"><xsd:simpleContent><xsd:extension base="epm:XmlKliendiKoodType"/></xsd:simpleContent></xsd:complexType><xsd:complexType name="XmlKlientideMuudatusedRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element name="algus_kp" type="xsd:dateTime"/><xsd:element minOccurs="0" name="kliendid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" minOccurs="0" name="kliendi_nr" type="xsd:string"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element default="2" name="andmestiku_tase" type="xsd:int"/><xsd:element name="muudatused" type="xsd:boolean"/><xsd:element name="algpositsioon" type="xsd:int"/><xsd:element name="maksimaalne_kannete_arv_vastuses" type="xsd:int"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlSalvestaKlientRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element minOccurs="0" name="klient" type="epm:XmlKlientType"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKliendiNrType"><xsd:simpleContent><xsd:extension base="epm:XmlKliendiKoodType"/></xsd:simpleContent></xsd:complexType><xsd:complexType name="XmlAnnaEsindamisedResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence><xsd:element minOccurs="0" name="esindamised"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="esindamine"><xsd:complexType><xsd:sequence><xsd:element name="esindatav_klient" type="epm:XmlKlientType"/><xsd:element name="esindaja_klient" type="epm:XmlKlientType"/><xsd:element minOccurs="0" name="email" type="xsd:string"/><xsd:element minOccurs="0" name="telefon" type="xsd:string"/><xsd:element name="on_volitamisoigus" type="xsd:boolean"/><xsd:element minOccurs="0" name="valdkonnad"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="valdkond"><xsd:complexType><xsd:sequence><xsd:element name="valdkond_kood" nillable="true" type="xsd:string"/><xsd:element name="kehtiv_alates" type="xsd:date"/><xsd:element minOccurs="0" name="kehtiv_kuni" type="xsd:date"/><xsd:element minOccurs="0" name="alusfail_fail_id" type="xsd:string"/><xsd:element minOccurs="0" name="alusfail_nimi" type="xsd:string"/></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:complexType></xsd:element></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKlientideOtsingResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence><xsd:element minOccurs="0" name="kliendid"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="klient" type="epm:XmlKlientType"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="tulemuste_arv" type="xsd:int"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlKlientideOtsingRequestType"><xsd:complexContent><xsd:extension base="epm:XmlBaseRequestType"><xsd:sequence><xsd:element minOccurs="0" name="nimi" type="xsd:string"/><xsd:element minOccurs="0" name="kood" type="xsd:string"/><xsd:element minOccurs="0" name="klient_staatus" type="epm:XmlKlassifikaatorType"/><xsd:element minOccurs="0" name="telefon" type="xsd:string"/><xsd:element minOccurs="0" name="email" type="xsd:string"/><xsd:element minOccurs="0" name="esindaja_isikukood" type="xsd:string"/><xsd:element minOccurs="0" name="esindaja_nimi" type="xsd:string"/><xsd:element minOccurs="0" name="kliendi_nr" type="xsd:string"/><xsd:element minOccurs="0" name="aadress" type="xsd:string"/><xsd:element minOccurs="0" name="kategooriad"><xsd:complexType><xsd:sequence><xsd:element maxOccurs="unbounded" name="kategooria" type="epm:XmlKlientKategooriaType"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element minOccurs="0" name="valine_klientkood" type="epm:XmlValineKlientkoodType"/><xsd:element minOccurs="0" name="andmestiku_tapsustus" type="epm:XmlAndmestikuTapsustusType"/><xsd:element minOccurs="0" name="pagination" type="epm:XmlPaginationType"/><xsd:element minOccurs="0" name="kliendi_tyybid"><xsd:complexType><xsd:sequence><xsd:element minOccurs="0" name="ametnik" type="xsd:boolean"/><xsd:element minOccurs="0" name="eraisik" type="xsd:boolean"/><xsd:element minOccurs="0" name="juriidiline_isik" type="xsd:boolean"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element default="true" minOccurs="0" name="laiendatud_nimeotsing" type="xsd:boolean"/><xsd:element minOccurs="0" name="ordering" type="epm:XmlOrderingType"/></xsd:sequence></xsd:extension></xsd:complexContent></xsd:complexType><xsd:complexType name="XmlUuendaEsindamistResponseType"><xsd:complexContent><xsd:extension base="epm:XmlBaseResponseType"><xsd:sequence/></xsd:extension></xsd:complexContent></xsd:complexType><xsd:element name="kliendiAndmed_RR_ARResponse" type="epm:XmlKliendiAndmedRegistristResponseType"/><xsd:element name="kliendiAndmedResponse" type="epm:XmlKliendiAndmedResponseType"/><xsd:element name="klientideOtsingRequest" type="epm:XmlKlientideOtsingRequestType"/><xsd:element name="klientideMuudatusedRequest" type="epm:XmlKlientideMuudatusedRequestType"/><xsd:element name="uuendaEsindamistRequest" type="epm:XmlUuendaEsindamistRequestType"/><xsd:element name="annaEsindamisedRequest" type="epm:XmlAnnaEsindamisedRequestType"/><xsd:element name="annaEsindatavadRequest" type="epm:XmlAnnaEsindatavadRequestType"/><xsd:element name="registreeriValineKlientkoodRequest" type="epm:XmlRegistreeriValineKlientkoodRequestType"/><xsd:element name="salvestaKlientResponse" type="epm:XmlSalvestaKlientResponseType"/><xsd:element name="kliendiAndmed_RR_ARRequest" type="epm:XmlKliendiAndmedRegistristRequestType"/><xsd:element name="annaEsindamisedResponse" type="epm:XmlAnnaEsindamisedResponseType"/><xsd:element name="esindamiseFailRequest" type="epm:XmlEsindamiseFailRequestType"/><xsd:element name="registreeriValineKlientkoodResponse" type="epm:XmlRegistreeriValineKlientkoodResponseType"/><xsd:element name="uuendaEsindamistResponse" type="epm:XmlUuendaEsindamistResponseType"/><xsd:element name="esindamiseFailResponse" type="epm:XmlEsindamiseFailResponseType"/><xsd:element name="klassifikaatoriVaartusedResponse" type="epm:XmlKlassifikaatoriVaartusedResponseType"/><xsd:element name="klassifikaatoriVaartusedTolkegaResponse" type="epm:XmlKlassifikaatoriVaartusedTolkegaResponseType"/><xsd:element name="klientideMuudatusedResponse" type="epm:XmlKlientideMuudatusedResponseType"/><xsd:element name="klassifikaatoriVaartusedRequest" type="epm:XmlKlassifikaatoriVaartusedRequestType"/><xsd:element name="klassifikaatoriVaartusedTolkegaRequest" type="epm:XmlKlassifikaatoriVaartusedTolkegaRequestType"/><xsd:element name="klientideOtsingResponse" type="epm:XmlKlientideOtsingResponseType"/><xsd:element name="klientXteeAutentResponse" type="epm:XmlKlientXteeAutentResponseType"/><xsd:element name="kliendiAndmedRequest" type="epm:XmlKliendiAndmedRequestType"/><xsd:element name="klientXteeAutentRequest" type="epm:XmlKlientXteeAutentRequestType"/><xsd:element name="salvestaKlientRequest" type="epm:XmlSalvestaKlientRequestType"/><xsd:simpleType name="XmlKliendiKoodType"><xsd:restriction base="xsd:string"/></xsd:simpleType></xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="esindamiseFailResponse">
+    <wsdl:part element="tns:esindamiseFailResponse" name="esindamiseFailResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klassifikaatoriVaartusedResponse">
+    <wsdl:part element="tns:klassifikaatoriVaartusedResponse" name="klassifikaatoriVaartusedResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klientideOtsingRequest">
+    <wsdl:part element="tns:klientideOtsingRequest" name="klientideOtsingRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="kliendiAndmed_RR_ARRequest">
+    <wsdl:part element="tns:kliendiAndmed_RR_ARRequest" name="kliendiAndmed_RR_ARRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klientideMuudatusedResponse">
+    <wsdl:part element="tns:klientideMuudatusedResponse" name="klientideMuudatusedResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uuendaEsindamistResponse">
+    <wsdl:part element="tns:uuendaEsindamistResponse" name="uuendaEsindamistResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="uuendaEsindamistRequest">
+    <wsdl:part element="tns:uuendaEsindamistRequest" name="uuendaEsindamistRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="esindamiseFailRequest">
+    <wsdl:part element="tns:esindamiseFailRequest" name="esindamiseFailRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klientXteeAutentResponse">
+    <wsdl:part element="tns:klientXteeAutentResponse" name="klientXteeAutentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="annaEsindamisedRequest">
+    <wsdl:part element="tns:annaEsindamisedRequest" name="annaEsindamisedRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klassifikaatoriVaartusedTolkegaResponse">
+    <wsdl:part element="tns:klassifikaatoriVaartusedTolkegaResponse" name="klassifikaatoriVaartusedTolkegaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="salvestaKlientRequest">
+    <wsdl:part element="tns:salvestaKlientRequest" name="salvestaKlientRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="kliendiAndmedResponse">
+    <wsdl:part element="tns:kliendiAndmedResponse" name="kliendiAndmedResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="kliendiAndmedRequest">
+    <wsdl:part element="tns:kliendiAndmedRequest" name="kliendiAndmedRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="kliendiAndmed_RR_ARResponse">
+    <wsdl:part element="tns:kliendiAndmed_RR_ARResponse" name="kliendiAndmed_RR_ARResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klientideOtsingResponse">
+    <wsdl:part element="tns:klientideOtsingResponse" name="klientideOtsingResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registreeriValineKlientkoodRequest">
+    <wsdl:part element="tns:registreeriValineKlientkoodRequest" name="registreeriValineKlientkoodRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klassifikaatoriVaartusedRequest">
+    <wsdl:part element="tns:klassifikaatoriVaartusedRequest" name="klassifikaatoriVaartusedRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registreeriValineKlientkoodResponse">
+    <wsdl:part element="tns:registreeriValineKlientkoodResponse" name="registreeriValineKlientkoodResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="annaEsindatavadRequest">
+    <wsdl:part element="tns:annaEsindatavadRequest" name="annaEsindatavadRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="salvestaKlientResponse">
+    <wsdl:part element="tns:salvestaKlientResponse" name="salvestaKlientResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klientideMuudatusedRequest">
+    <wsdl:part element="tns:klientideMuudatusedRequest" name="klientideMuudatusedRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="annaEsindamisedResponse">
+    <wsdl:part element="tns:annaEsindamisedResponse" name="annaEsindamisedResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klientXteeAutentRequest">
+    <wsdl:part element="tns:klientXteeAutentRequest" name="klientXteeAutentRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="klassifikaatoriVaartusedTolkegaRequest">
+    <wsdl:part element="tns:klassifikaatoriVaartusedTolkegaRequest" name="klassifikaatoriVaartusedTolkegaRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="KBServicePort">
+    <wsdl:operation name="esindamiseFail">
+      <wsdl:input message="tns:esindamiseFailRequest" name="esindamiseFailRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:esindamiseFailResponse" name="esindamiseFailResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klassifikaatoriVaartused">
+      <wsdl:input message="tns:klassifikaatoriVaartusedRequest" name="klassifikaatoriVaartusedRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:klassifikaatoriVaartusedResponse" name="klassifikaatoriVaartusedResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klientideOtsing">
+      <wsdl:input message="tns:klientideOtsingRequest" name="klientideOtsingRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:klientideOtsingResponse" name="klientideOtsingResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kliendiAndmed_RR_AR">
+      <wsdl:input message="tns:kliendiAndmed_RR_ARRequest" name="kliendiAndmed_RR_ARRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:kliendiAndmed_RR_ARResponse" name="kliendiAndmed_RR_ARResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klientideMuudatused">
+      <wsdl:input message="tns:klientideMuudatusedRequest" name="klientideMuudatusedRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:klientideMuudatusedResponse" name="klientideMuudatusedResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uuendaEsindamist">
+      <wsdl:input message="tns:uuendaEsindamistRequest" name="uuendaEsindamistRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:uuendaEsindamistResponse" name="uuendaEsindamistResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klientXteeAutent">
+      <wsdl:input message="tns:klientXteeAutentRequest" name="klientXteeAutentRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:klientXteeAutentResponse" name="klientXteeAutentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="annaEsindamised">
+      <wsdl:input message="tns:annaEsindamisedRequest" name="annaEsindamisedRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:annaEsindamisedResponse" name="annaEsindamisedResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klassifikaatoriVaartusedTolkega">
+      <wsdl:input message="tns:klassifikaatoriVaartusedTolkegaRequest" name="klassifikaatoriVaartusedTolkegaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:klassifikaatoriVaartusedTolkegaResponse" name="klassifikaatoriVaartusedTolkegaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="salvestaKlient">
+      <wsdl:input message="tns:salvestaKlientRequest" name="salvestaKlientRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:salvestaKlientResponse" name="salvestaKlientResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kliendiAndmed">
+      <wsdl:input message="tns:kliendiAndmedRequest" name="kliendiAndmedRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:kliendiAndmedResponse" name="kliendiAndmedResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registreeriValineKlientkood">
+      <wsdl:input message="tns:registreeriValineKlientkoodRequest" name="registreeriValineKlientkoodRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:registreeriValineKlientkoodResponse" name="registreeriValineKlientkoodResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="annaEsindatavad">
+      <wsdl:input message="tns:annaEsindatavadRequest" name="annaEsindatavadRequest">
+    </wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="KBServicePortSoap11" type="tns:KBServicePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="esindamiseFail">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="esindamiseFailRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="esindamiseFailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klassifikaatoriVaartused">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="klassifikaatoriVaartusedRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="klassifikaatoriVaartusedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klientideOtsing">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="klientideOtsingRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="klientideOtsingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kliendiAndmed_RR_AR">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="kliendiAndmed_RR_ARRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="kliendiAndmed_RR_ARResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klientideMuudatused">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="klientideMuudatusedRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="klientideMuudatusedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uuendaEsindamist">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="uuendaEsindamistRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="uuendaEsindamistResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klientXteeAutent">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="klientXteeAutentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="klientXteeAutentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="annaEsindamised">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="annaEsindamisedRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="annaEsindamisedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="klassifikaatoriVaartusedTolkega">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="klassifikaatoriVaartusedTolkegaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="klassifikaatoriVaartusedTolkegaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="salvestaKlient">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="salvestaKlientRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="salvestaKlientResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kliendiAndmed">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="kliendiAndmedRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="kliendiAndmedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="registreeriValineKlientkood">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="registreeriValineKlientkoodRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registreeriValineKlientkoodResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="annaEsindatavad">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="annaEsindatavadRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KBServicePortService">
+    <wsdl:port binding="tns:KBServicePortSoap11" name="KBServicePortSoap11">
+      <soap:address location="https://kbtest.agri.ee:443/epm-ws/KBService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
