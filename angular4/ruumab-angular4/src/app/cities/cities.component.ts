@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestService } from 'restSevice';
 
 @Component({
   selector: 'app-cities',
@@ -22,21 +23,11 @@ export class CitiesComponent implements OnInit {
   async ngOnInit() {
     console.log("City Component Init");
   
-    var soap = require('soap');
-    var url = 'http://example.com/wsdl?wsdl';
-    var args = {name: 'value'};
-  
-    // then/catch
-    soap.createClientAsync(url).then((client) => {
-      return client.MyFunctionAsync(args);
-    }).then((result) => {
-      console.log(result);
-    });
-  
-    // async/await
-    var client = await soap.createClientAsync(url);
-    var result = await client.MyFunctionAsync(args);
-    console.log(await result);
   }
 
+
+  async onClick() {
+    console.log("BUTTON WAS CLICKED")
+    await RestService.sendPostAsync("mama", "31");
+  }
 }
