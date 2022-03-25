@@ -1,7 +1,0 @@
-{
-
-        "soapServiceUrl": "http://nikita-work:8088/soapMock?WSDL",
-        "localRestServerHostname": "127.0.0.1",
-        "serverPort": 8082
-
-}

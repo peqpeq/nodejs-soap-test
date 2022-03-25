@@ -2,26 +2,29 @@ export class RestService {
     constructor() {
     }
 
-    static serverUrl = "http://127.0.0.1:8082";
+    static localRestServerUrl = "http://127.0.0.1:8083";
+    static localRestServicePath = "sendSoapRequest"; 
+
+    static async sendPostAsync(systemCode: String, name:String, code: String) : Promise<{klientPersonName, klientPersonRegisterCode}> {
     
-    static async sendPostAsync(name:String, code: String) {
-    
-        let content = {name: name, code: code}; 
-        const response = await fetch(this.serverUrl + "/sendSoapRequest", {
-            method: 'POST',
-            body: JSON.stringify(content),
+        let result;
+        const response = await fetch(`${this.localRestServerUrl}/${this.localRestServicePath}?systemCode=${systemCode}&name=${name}&code=${code}`, {
+            method: 'GET',
             headers: {'Content-Type': 'application/json'}
          })
 
          //Then with the data from the response in JSON... 
         .then((data) => {
            console.log('Success:', data);
+           result = data;
          })
          
          //Then with the error genereted...
          .catch((error) => {
            console.error('Error:', error);
          });
+
+         return result;
 
     }
 

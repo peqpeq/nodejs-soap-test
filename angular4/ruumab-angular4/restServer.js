@@ -1,18 +1,32 @@
-const soapUrl = "http://nikita-work:8088/soapMock?WSDL";
+const soap = require('soap');
+const express = require('express')
+
+const soapEndpoint = "http://nikita-work:8088/soapMock?WSDL";
 const serverHostname = '127.0.0.1';
-const serverPort = 8082;
+const serverPort = 8083;
 
-run();
+const app = express();
+
+var clientGlobal;  
 
 
-function run() {
-    
-    const express = require('express')
-    const bodyParser = require('body-parser');
+initializeSoapClient()
+    .then(startServer);
 
-    var app = express();
-    app.use(bodyParser.json());
+function initializeSoapClient() {
+    return new Promise((resolve, reject) => {
 
+        soap.createClient(soapEndpoint , function(err, client) {
+            if (err) throw err;
+            
+            this.clientGlobal = client;
+            resolve();
+            console.log("Soap client has been succesfully  initialized.")
+        })
+    });
+}
+
+function startServer() {
 
     // Todo maybe It's not okey to allow everything
     app.use(function(req, res, next) {
@@ -23,25 +37,17 @@ function run() {
       });
 
 
+      // Declare GET action
+     app.get('/sendSoapRequest', function (req, res) {
+        console.log("Got GET request on /sendSoapRequest");
+        console.log('Got query:', req.query);
+        let record = sendSoapRequest(req.query.systemCode, req.query.name, req.query.code)
 
-    // Declare POST action
-     app.post('/sendSoapRequest', function (req, res) {
-        console.log("Got POST request on /sendSoapRequest");
-        console.log('Got body:', req.body);
+        res.send(JSON.stringify(record))
 
-        // Validate the data
-        if(req.body.name === undefined || req.body.code === undefined ) {
-            res.sendStatus(400);
-            return; 
-        }
-
-
-        sendSoapRequest(req.body.name, req.body.code);
-        res.sendStatus(200);
+        console.log('GET response was sent:', record);
 
      })
-
-
 
      // Start the server
      var server = app.listen(serverPort, serverHostname, function () {
@@ -53,18 +59,24 @@ function run() {
 }
 
 
-function sendSoapRequest(name, code) {
-    console.log("Sending SOAP request to %s ...", soapUrl)
+function sendSoapRequest(systemCode, name, code) {
+        
 
-    var soap = require('soap');
+    var record;
 
-    // TODO Currently sending request on a Mock service
-
-    soap.createClient(soapUrl, function(err, client) {
-        if (err) throw err;
-        console.log(client.describe().KBServicePortService.KBServicePortSoap11);
-
-    });
-    console.log("Soap request was sent.")
+            this.clientGlobal.KBServicePortService.KBServicePortSoap11.klientideOtsing({'epm:systeem_id': systemCode, 'epm:nimi': name, 'epm:kood': code}, function(err, result) {
+                if (err) throw err;
+        
+                let klient = result.kliendid.klient[0];
+        
+                let recordFromSoap = {klientPersonName: klient.jur_isik.nimi, klientPersonRegisterCode: klient.jur_isik.registrikood }
+                console.log("recordFromSoap", recordFromSoap)
+                record = recordFromSoap;
+                
+            });
+            
+            
+        return record;
+    
 }
 

@@ -18,6 +18,7 @@ export class CitiesComponent implements OnInit {
                { city_name: "Denpasar", prov_name: "Bali" },
                { city_name: "Makasar", prov_name: "Sulawesi Selatan" }];
 
+  result = {klientPersonName: "test", klientPersonRegisterCode: "test"};
   constructor() { }
 
   async ngOnInit() {
@@ -28,6 +29,6 @@ export class CitiesComponent implements OnInit {
 
   async onClick() {
     console.log("BUTTON WAS CLICKED")
-    await RestService.sendPostAsync("mama", "31");
+    this.result = await RestService.sendPostAsync("AS TARTU AGRO", "mama", "31");
   }
 }
