@@ -71,7 +71,8 @@ function sendSoapRequest(systemCode, name, code) {
             generateSoapRequestObject(systemCode, name, code),
             function (err, result) {
                 if (err) throw err;
-                resolve(result.kliendid.klient.length !== 0)
+
+                resolve(result && result.kliendid && result.kliendid.klient.lenght !== 0)
             });
 
     });
