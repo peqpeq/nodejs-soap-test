@@ -21,8 +21,8 @@ function initializeSoapClient() {
         soap.createClient(soapEndpoint, function (err, client) {
             if (err) throw err;
             this.globalClient = client;
-            resolve();
             console.log("Soap client has been succesfully  initialized.")
+            resolve(true);
         })
     });
 }
@@ -71,20 +71,7 @@ function sendSoapRequest(systemCode, name, code) {
             generateSoapRequestObject(systemCode, name, code),
             function (err, result) {
                 if (err) throw err;
-
-
                 resolve(result.kliendid.klient.length !== 0)
-
-                // Todo remove on deploy TEST PART
-                // let klient = result.kliendid.klient[0];
-                // var record = {
-                //     klientPersonName: klient.jur_isik.nimi,
-                //     klientPersonRegisterCode: klient.jur_isik.registrikood
-                // }
-                // console.log("recordFromSoap", record);
-                // resolve(record);
-
-
             });
 
     });

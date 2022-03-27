@@ -9,17 +9,16 @@ import { RestService } from 'restSevice';
 export class CitiesComponent implements OnInit {
 
 requestResult: boolean = false;
-  constructor() { }
+
+constructor(private restService: RestService) {   }
 
   async ngOnInit() {
+    console.log("City Component Init");
   
   }
 
 
-  async onClickAsync() {
-    this.requestResult = await RestService.sendPostAsync("AS TARTU AGRO", "mama", "31");
-  }
-  async onReset() {
-    this.requestResult = false;
+  onClickAsync() {
+     this.restService.sendPost("AS TARTU AGRO", "mama", "31").then( (result) => {console.log("RESULT ", result)});
   }
 }

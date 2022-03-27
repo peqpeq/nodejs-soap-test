@@ -1,3 +1,4 @@
+import { RestService } from 'restSevice';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -21,7 +22,7 @@ import { CitiesComponent } from './cities/cities.component';
       { path: 'cities', component: CitiesComponent }
     ])
   ],
-  providers: [],
+  providers: [RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
