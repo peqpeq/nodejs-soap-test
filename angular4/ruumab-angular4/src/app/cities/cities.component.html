@@ -1,10 +1,6 @@
-<ul *ngIf="cityList.length>0; else loading">
-  <li *ngFor="let city of cityList">
-    {{ city.city_name }} - {{ city.prov_name }}
-  </li>
-</ul>
 
-<h1>{{result.klientPersonName}} - {{result.klientPersonRegisterCode}}</h1>
+<h1>{{requestResult}}</h1>
 
-<button (click)="onClick()">CLICK ME</button>
+<button (click)="onClickAsync()">SEND REQUEST</button>
+<button (click)="onReset()">RESET</button>
 <ng-template #loading>No cities found</ng-template>
